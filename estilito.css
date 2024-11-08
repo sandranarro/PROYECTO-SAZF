@@ -1,0 +1,128 @@
+.botonMagic{
+    background: black;
+    cursor: pointer;
+    border: none;
+    padding: 16px 32px;
+    color: azure;
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+    border-radius: 12px;
+}
+
+.botonMagic:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, red, blue, deeppink, blue, red, blue, deeppink, blue);
+    background-size: 800%;
+    border-radius: 12px;
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+
+
+
+body {
+  font-family: "Sour Gummy", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+@keyframes rotar {
+    from {
+        transform: rotateY(0deg);  /* Empezar desde 0 grados */
+    }
+    to {
+        transform: rotateY(360deg);  /* Terminar en 360 grados */
+    }
+}
+
+img:hover {
+    cursor: pointer;
+    animation: rotar 2s linear;  /* Aplica la animación cuando el mouse pasa por encima */
+}
+
+
+
+/* Animación de máquina de escribir */
+@keyframes escribirTexto {
+    0% {
+        width: 0; /* Comienza con el texto oculto */
+    }
+    100% {
+        width: 100%; /* El texto aparece por completo */
+    }
+}
+
+/* Animación para que las letras aparezcan una por una */
+@keyframes escribirTexto {
+    0% {
+        width: 0; /* Comienza con el texto oculto */
+    }
+    100% {
+        width: 100%; /* El texto aparece por completo */
+    }
+}
+
+/* Animación de máquina de escribir */
+@keyframes escribirTexto {
+    0% {
+        width: 0; /* Comienza con el texto oculto */
+    }
+    100% {
+        width: 100%; /* El texto aparece por completo */
+    }
+}
+
+/* Aplicación de la animación al texto con la clase .text-maquina */
+.text-maquina {
+    display: inline-block;
+    font-size: 50px;  /* Tamaño de la fuente */
+    font-weight: bold;
+    color: #070707;  /* Puedes cambiar el color */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden; /* Oculta cualquier parte del texto que no se haya mostrado */
+    border-right: 3px solid #121213; /* Simula el cursor */
+    animation: escribirTexto 4s steps(5) 1s forwards, parpadeoCursor 0.75s step-end infinite, ocultarCursor 2s forwards;
+}
+
+/* Animación del parpadeo del cursor */
+@keyframes parpadeoCursor {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Animación para ocultar el cursor después de la animación de escritura */
+@keyframes ocultarCursor {
+    0% {
+        border-color: #0f0f0f; /* El cursor es visible al inicio */
+    }
+    99% {
+        border-color: #070707; /* El cursor sigue visible mientras se escribe */
+    }
+    100% {
+        border-color: transparent; /* El cursor se oculta al final */
+    }
+}
